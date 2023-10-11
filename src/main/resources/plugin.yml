@@ -1,0 +1,6 @@
+name: "EndMCExercise"
+version: "0.0.1"
+main: "fr.kotlini.exercise.ExercisePlugin"
+commands:
+  player:
+    description: "display player infos"

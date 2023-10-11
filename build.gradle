@@ -1,0 +1,38 @@
+plugins {
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id 'java'
+}
+
+group = 'fr.kotlini.exercise'
+version = '1.0-SNAPSHOT'
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshot' }
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    compileOnly 'org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT'
+
+    implementation 'com.google.inject:guice:7.0.0'
+    implementation 'com.github.ben-manes.caffeine:caffeine:3.1.8'
+    implementation 'com.j256.ormlite:ormlite-core:6.1'
+    implementation 'com.j256.ormlite:ormlite-jdbc:6.1'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
